@@ -1,0 +1,32 @@
+.viewWrapper {
+  background-color:white;
+  transition: all 1s ease-out;
+  border:1px solid red;
+  position:absolute;
+  left:0;
+  top:0;
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  
+  &.stay {
+    display: block;
+  }
+  &.hide {
+    display: none;
+  }
+  &.zoomin {
+    transform: scale(1);
+  }
+  &.zoomout {
+    transform: scale(0.8);
+  }
+  &.slidein {
+    transform: translateX(0);
+  }
+  &.slideout {
+    transform: translateX(100vw);
+  }
+}
