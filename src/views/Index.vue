@@ -14,7 +14,7 @@
 </template>
 <script>
 import { defineComponent, reactive, onMounted, nextTick } from "vue";
-import { Router } from "../viewframework/Router";
+import { RouterMount } from "../viewframework/Router";
 import ViewWrapper from "../viewframework/ViewWrapper.vue";
 import Header from "../components/header/Header.vue";
 import Home from "../views/Home.vue";
@@ -30,9 +30,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      nextTick(() => {
-        Router.init(PAGES.HOME);
-      });
+      RouterMount();
     });
 
     return {

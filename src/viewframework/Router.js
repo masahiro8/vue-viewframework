@@ -1,3 +1,5 @@
+import { PAGES } from "../views/router.config";
+
 /**
  *
  * @param {$router} _router
@@ -33,7 +35,7 @@ const _Router = () => {
       stackView = stackView.slice(0, index + 1);
     }
     history.push(stackView);
-    window.history.pushState(`${_PAGE.id}`, _PAGE.label, `/${_PAGE.id}`);
+    window.history.pushState(`${_PAGE.id}`, _PAGE.label, `${_PAGE.path}`);
     publishCallback();
   };
 
@@ -44,7 +46,7 @@ const _Router = () => {
       stackView = history[history.length - 1];
     }
     const _PAGE = stackView[stackView.length - 1];
-    window.history.pushState(`${_PAGE.id}`, _PAGE.label, `/${_PAGE.id}`);
+    window.history.pushState(`${_PAGE.id}`, _PAGE.label, `${_PAGE.path}`);
     publishCallback();
   };
 
@@ -57,6 +59,18 @@ const _Router = () => {
   };
 };
 
+const RouterMount = () => {
+  const path = window.location.pathname;
+  if (!path) {
+    Router.push(PAGES.INDEX);
+    return;
+  }
+  const page = Object.keys(PAGES).find((key) => {
+    return PAGES[key].path === path;
+  });
+  Router.push(PAGES[page]);
+};
+
 const Router = _Router();
 
-export { Router };
+export { Router, RouterMount };
