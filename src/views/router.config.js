@@ -1,14 +1,15 @@
 export const PAGES = {
-  INDEX: {
-    id: "Index",
-    label: "Website",
-    path: "/"
-  },
   HOME: {
     id: "Home",
     label: "Website - Home",
-    path: "/home"
+    path: "/"
   },
   WORKS: { id: "Works", label: "Website - Works", path: "/works" },
   ABOUT: { id: "About", label: "Website - About", path: "/about" }
+};
+
+export const CONFIG = {
+  //アニメーション時間(ms)
+  changeTime: 400,
+  rootPage: PAGES.HOME
 };

@@ -1,11 +1,11 @@
-import { PAGES } from "../views/router.config";
+import { PAGES, CONFIG } from "../views/router.config";
 
 /**
  *
  * @param {$router} _router
  */
 const _Router = () => {
-  let changeTime = 400;
+  let changeTime = CONFIG.changeTime;
   let stackView = []; //ここが画面上の重なりの状態
   let stackViewPrev = []; //ここが画面上の重なりの前の状態
   let history = []; //重なりの変更履歴
@@ -62,7 +62,7 @@ const _Router = () => {
 const RouterMount = () => {
   const path = window.location.pathname;
   if (!path) {
-    Router.push(PAGES.INDEX);
+    Router.push(CONFIG.rootPage);
     return;
   }
   const page = Object.keys(PAGES).find((key) => {

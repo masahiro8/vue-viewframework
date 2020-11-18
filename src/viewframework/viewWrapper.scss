@@ -23,10 +23,22 @@
   &.zoomout {
     transform: scale(0.8);
   }
-  &.slidein {
+  &.right2left_in {
     transform: translateX(0);
   }
-  &.slideout {
+  &.right2left_out {
     transform: translateX(100vw);
+  }
+  &.left2right_in {
+    transform: translateX(0);
+  }
+  &.left2right_out {
+    transform: translateX(-100vw);
+  }
+  &.bottom2top_in {
+    transform: translateY(0);
+  }
+  &.bottom2top_out {
+    transform: translateY(100vh);
   }
 }

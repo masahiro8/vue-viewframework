@@ -1,21 +1,30 @@
 <template>
   <div>
     <Header />
-    <ViewWrapper :view="state.PAGES.HOME">
+    <ViewWrapper
+      :view="state.PAGES.HOME"
+      :slideType="state.VIEW_SLIDE_TYPE.BOTTOM2TOP"
+    >
       <Home />
     </ViewWrapper>
-    <ViewWrapper :view="state.PAGES.WORKS">
+    <ViewWrapper
+      :view="state.PAGES.WORKS"
+      :slideType="state.VIEW_SLIDE_TYPE.BOTTOM2TOP"
+    >
       <Works />
     </ViewWrapper>
-    <ViewWrapper :view="state.PAGES.ABOUT">
+    <ViewWrapper
+      :view="state.PAGES.ABOUT"
+      :slideType="state.VIEW_SLIDE_TYPE.BOTTOM2TOP"
+    >
       <About />
     </ViewWrapper>
   </div>
 </template>
 <script>
-import { defineComponent, reactive, onMounted, nextTick } from "vue";
+import { defineComponent, reactive, onMounted } from "vue";
 import { RouterMount } from "../viewframework/Router";
-import ViewWrapper from "../viewframework/ViewWrapper.vue";
+import ViewWrapper, { VIEW_SLIDE_TYPE } from "../viewframework/ViewWrapper.vue";
 import Header from "../components/header/Header.vue";
 import Home from "../views/Home.vue";
 import Works from "../views/Works.vue";
@@ -27,6 +36,7 @@ export default defineComponent({
   setup() {
     const state = reactive({
       PAGES,
+      VIEW_SLIDE_TYPE,
     });
 
     onMounted(() => {

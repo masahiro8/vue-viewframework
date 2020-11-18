@@ -7,9 +7,19 @@
 import { defineComponent, onMounted, computed, reactive } from "vue";
 import { Router } from "./Router";
 
+export const VIEW_SLIDE_TYPE = {
+  BOTTOM2TOP: "bottom2top",
+  RIGHT2LEFT: "right2left",
+  LEFT2RIGHT: "left2right",
+};
+
 export default defineComponent({
   props: {
     view: Object,
+    slideType: {
+      type: String,
+      default: VIEW_SLIDE_TYPE.BOTTOM2TOP,
+    },
   },
   setup(props) {
     const state = reactive({
@@ -137,11 +147,11 @@ export default defineComponent({
       },
       SlideIn: (time) => {
         state.changeTime = time;
-        setClassName("slidein");
+        setClassName(`${props.slideType}_in`);
       },
       SlideOut: (time) => {
         state.changeTime = time;
-        setClassName("slideout");
+        setClassName(`${props.slideType}_out`);
       },
     };
     return {
